@@ -1,4 +1,5 @@
-# Automatic differentiation based on static computational graph
+# AutoDiff
+A C++ library of automatic differentiation based on static computational graph.
 
 ## Demo
 
