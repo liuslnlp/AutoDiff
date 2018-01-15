@@ -2,4 +2,4 @@
 
 ## Demo
 
-See main.cpp
+See `main.cpp`.
