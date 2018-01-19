@@ -355,7 +355,13 @@ namespace ad {
         }
     };
 
+    Node exp(const Node &input_node){
+        return ExpOp::initialize(input_node);
+    }
 
+    Node log(const Node &input_node){
+        return LogOp::initialize(input_node);
+    }
 }
 
 

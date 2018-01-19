@@ -26,7 +26,7 @@ void test_backward() {
     ad::Node x1 = ad::Variable("x1");
     ad::Node x2 = ad::Variable("x2");
     ad::Node y = 3 * x1 + 4 * x2 + 5;
-    auto t = Gradients(y, vector<ad::Node>{x1, x2});
+    auto t = ad::Gradients(y, vector<ad::Node>{x1, x2});
     ad::Executor e(vector<ad::Node> { y, t[0], t[1] });
     ad::FeedDict feed_dict;
     vector<ad::Ctype> ans;
