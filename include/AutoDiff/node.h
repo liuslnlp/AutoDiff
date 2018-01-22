@@ -9,10 +9,10 @@
 #include <string>
 #include <functional>
 
+
 namespace ad {
 	// 常数的类型
 	typedef float Ctype;
-
 
 	class Node;
 	typedef std::function<Ctype(const Node&, const std::vector<Ctype>&)> forward_func;

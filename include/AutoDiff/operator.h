@@ -9,7 +9,7 @@
 #include <sstream>
 #include <string>
 #include <cmath>
-#include <assert.h>
+#include <cassert>
 
 namespace ad {
     template<typename T>
