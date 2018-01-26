@@ -5,13 +5,15 @@
 #ifndef AUTODIFF_TENSOR_H
 #define AUTODIFF_TENSOR_H
 
+#include "storage.h"
+
 #include <vector>
 typedef float TDtype
 
 class Tensor
 {
 public:
-    Tensor(const Tensor & t){
+    Tensor(const Tensor &t){
         len_ = t.len_;
         data_ = new TDtype[len_];
         ndim_ = t.ndim_;
@@ -37,15 +39,30 @@ public:
         delete [] size_;
     }
     void from_array(TDtype *arr, size_t len, size_t *size, size_t ndim);
-    Tensor resize(size_t *size, size_t len);
-    Tensor mean(int axis);
-    Tensor pow(int p);
+    bool resize(size_t *size, size_t ndim){
+        size_t i, new_size_len = 0;
+        for(i = 0; i < ndim; ++ i)
+            new_size_len += size[i];
+        if (new_size_len != len_)
+            return 0;
+        if(ndim != ndim_){
+            delete size_;
+            size_ = new size_t[ndim];
+        }
+        memcpy(size_, size, sizeof(size_t) * ndim);
+    }
+    bool squeeze();
+    TDtype get(){
+        va_list
+    }
 
 private:
+    Storage *storage;
     TDtype *data_;
     size_t len_;
     int ndim_;
     size_t *size_;// 每个维度的长度
+    size_t *stride_;
 };
 
 #endif //AUTODIFF_TENSOR_H
