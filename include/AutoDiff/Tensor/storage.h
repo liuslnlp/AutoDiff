@@ -14,6 +14,9 @@ public:
         data_ = new float[size];
         memcpy(data_, data, size);
     }
+    ~Storage(){
+        delete []data_;
+    }
     void set(size_t idx, float value){
         assert(idx < size_);
         data_[idx] = value;
@@ -22,6 +25,10 @@ public:
         assert(idx < size_);
         return data_[i];
     }
+    float* get_data(){
+        return data_;
+    }
+
     size_t size(){ return size_;}
     void fill(float value){
         for(size_t i = 0; i < size_; ++i)
