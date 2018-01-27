@@ -53,6 +53,10 @@ public:
     float *data(){
         return this->storage.get_data();
     }
+    float get1d(size_t idx){
+        return storage.get(idx);
+    }
+    float get2d(size_t x0, size_t x1);
 
 private:
     Storage storage;
